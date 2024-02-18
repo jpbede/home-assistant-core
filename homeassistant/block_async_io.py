@@ -1,4 +1,5 @@
 """Block blocking calls being done in asyncio."""
+import builtins
 from http.client import HTTPConnection
 import time
 
@@ -13,8 +14,8 @@ def enable() -> None:
     )
 
     # Prevent sleeping in event loop. Non-strict since 2022.02
-    time.sleep = protect_loop(time.sleep, strict=False)
+    time.sleep = protect_loop(time.sleep)
 
     # Currently disabled. pytz doing I/O when getting timezone.
     # Prevent files being opened inside the event loop
-    # builtins.open = protect_loop(builtins.open)
+    builtins.open = protect_loop(builtins.open)  # type: ignore[assignment]
