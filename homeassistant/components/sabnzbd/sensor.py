@@ -18,6 +18,9 @@ from homeassistant.helpers.typing import StateType
 from .coordinator import SabnzbdConfigEntry
 from .entity import SabnzbdEntity
 
+# Coordinator is used to centralize the data updates
+PARALLEL_UPDATES = 0
+
 
 @dataclass(frozen=True, kw_only=True)
 class SabnzbdSensorEntityDescription(SensorEntityDescription):

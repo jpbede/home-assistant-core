@@ -15,6 +15,8 @@ from .const import DOMAIN
 from .coordinator import SabnzbdConfigEntry, SabnzbdUpdateCoordinator
 from .entity import SabnzbdEntity
 
+PARALLEL_UPDATES = 1
+
 
 @dataclass(kw_only=True, frozen=True)
 class SabnzbdButtonEntityDescription(ButtonEntityDescription):

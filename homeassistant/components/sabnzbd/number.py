@@ -21,6 +21,8 @@ from .const import DOMAIN
 from .coordinator import SabnzbdConfigEntry, SabnzbdUpdateCoordinator
 from .entity import SabnzbdEntity
 
+PARALLEL_UPDATES = 1
+
 
 @dataclass(frozen=True, kw_only=True)
 class SabnzbdNumberEntityDescription(NumberEntityDescription):
